@@ -5,6 +5,7 @@ angular.module('app', [
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
+  	// .when('/')
     .when('/post', {
       templateUrl: 'app/Post/Post.html',
       controller: 'PostController'

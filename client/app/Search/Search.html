@@ -2,14 +2,13 @@
   <div ng-controller="SearchController">
   <div class='navigation'>
     <ul>
-      <li><a href="#/search">Links</a></li> 
-      <li><a href="#/post">Shorten</a></li>
+      <li><a href="#/search">Search</a></li> 
+      <li><a href="#/post">Post</a></li>
     </ul>
   </div>
     <input ng-model="searchText" placeholder="Search">
     <ul>
       <li class="searchList" ng-repeat="link in data.links | filter: searchText | orderBy:'created_at'">
-        <img src='/assets/redirect_icon.png'/>
           <div class='info'>
            
           </div>

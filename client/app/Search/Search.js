@@ -1,4 +1,4 @@
-angular.module('Search', [])
+angular.module('app.Search', [])
 
 .controller('SearchController', function ($scope) {
 	
