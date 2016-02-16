@@ -12,6 +12,17 @@ module.exports = {
 				res.send(200);
 			}
 		});
+	},
+
+	getPosts: function(req, res, next) {
+		var criteria = req.body.criteria;
+		Post.find({title: criteria}).exec(function (err, data) {
+			if (err) {
+				res.send(400);
+			} else {
+				res.send(data);
+			}
+		})
 	}
 
 };

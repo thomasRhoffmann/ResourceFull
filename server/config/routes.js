@@ -3,8 +3,6 @@ var postController = require('../posts/postController.js');
 
 module.exports = function (app, express) {
   app.post('/post', postController.addPost);
-
-  // app.get('/api/links/', linksController.allLinks);
-  // app.post('/api/links/', linksController.newLink);
+  app.post('/search', postController.getPosts);
 
 };
