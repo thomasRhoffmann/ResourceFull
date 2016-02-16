@@ -5,11 +5,11 @@ var PostSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true
-  }
+  },
   comment: {
     type: String,
     required: true,
   }
 });
 
-module.exports = mongoose.model('posts', UserSchema);
+module.exports = mongoose.model('posts', PostSchema);
