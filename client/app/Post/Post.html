@@ -6,10 +6,12 @@
       <li><a href="#/post">Post</a></li>
     </ul>
   </div>
-    <form ng-submit="addPost(post)">
-      <input placeholder="Enter resource name here" ng-model="post.title">
-      <input placeholder="Enter comment about resource here" ng-model="post.comment">
-      <input class="submit" type="submit" value="Post"> 
+    <form class="post" ng-submit="addPost(post)">
+      <h3>Post a Resource</h3 >
+      <input class="postInfo postTitle" placeholder="Title" ng-model="post.title">
+      <textarea class="postInfo postComment" placeholder="Comment" ng-model="post.comment"></textarea>
+      <input class="postInfo postTags" placeholder="Search Tags (comma separated)" ng-model="post.tags">   
+      <input class="submit" type="submit" value="Post">
     </form>
   </div>
 </div>

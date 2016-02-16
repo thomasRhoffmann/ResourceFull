@@ -5,7 +5,9 @@ module.exports = {
 	addPost: function(req, res, next) {
 		var title = req.body.title;
 		var comment = req.body.comment;
-		Post.create({title: title, comment: comment}, function (err, post) {
+		var tags = req.body.tags;
+		tags = tags.replace(/ /g,'').split(",");
+		Post.create({title: title, comment: comment, tags: tags}, function (err, post) {
 			if (err) {
 				res.send(400);
 			} else {
@@ -16,7 +18,8 @@ module.exports = {
 
 	getPosts: function(req, res, next) {
 		var criteria = req.body.criteria;
-		Post.find({title: criteria}).exec(function (err, data) {
+		criteria = criteria.replace(/ /g,'').split(",");
+		Post.find({tags: { $all: criteria} }).exec(function (err, data) {
 			if (err) {
 				res.send(400);
 			} else {

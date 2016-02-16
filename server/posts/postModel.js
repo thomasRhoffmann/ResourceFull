@@ -9,6 +9,10 @@ var PostSchema = new mongoose.Schema({
   comment: {
     type: String,
     required: true,
+  },
+  tags: {
+  	type: Array,
+  	require: true
   }
 });
 

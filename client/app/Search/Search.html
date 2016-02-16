@@ -6,12 +6,15 @@
       <li><a href="#/post">Post</a></li>
     </ul>
   </div>
-    <form ng-submit="findResources()">
-      <input ng-model="search.criteria" placeholder="Search">
-      <input type="submit" value="Search">
+    <form class="search" ng-submit="findResources()">
+      <input class="searchField" ng-model="search.criteria" placeholder="Search">
+      <input class="submitSearch" type="submit" value="Search">
     </form>
     <ul class="searchList">
-      <li class="searchResult" ng-repeat="result in data.searchResults | orderBy:'created_at'">{{result.title}} , {{result.comment}}</li>
+      <li class="searchResult" ng-repeat="result in data.searchResults | orderBy:'created_at'">
+        <div>Title: {{result.title}}</div> 
+        <div>Comment: {{result.comment}}</div>
+      </li>
     </ul>
   </div>
 </div>
