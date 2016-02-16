@@ -19,7 +19,33 @@ angular.module('app', [
       templateUrl: 'app/User/SignUp.html',
       controller: 'UserController'
     })
+    .when('/signin', {
+      templateUrl: 'app/User/SignIn.html',
+      controller: 'UserController'
+    })
      .otherwise({
        redirectTo: '/search'
     });
+
+
+  $httpProvider.interceptors.push( function($window) {
+    var attach = {
+      request: function (object) {
+        var jwt = $window.localStorage.getItem('com.resourcefull');
+        if (jwt) {
+          object.headers['x-access-token'] = jwt;
+        }
+        object.headers['Allow-Control-Allow-Origin'] = '*';
+        return object;
+      }
+    };
+    return attach;
+  });
+})
+.run(function ($rootScope, $location, Auth) {
+  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+    if (!Auth.isSignedIn()) {
+      $location.path('/signin');
+    }
+  });
 });

@@ -1,1 +1,10 @@
-SignIn.html
+<div id='signin'>
+  <h1>Sign In</h1>
+  <form name="signinForm" ng-submit='signin()'>
+    <input type='text' ng-model='user.username'>
+    <input type="password" name="password" ng-model='user.password' ng-minlength="3">
+      <p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short.</p>
+    <input type="submit" value="Sign Up">
+  </form>
+  <a href="#/signup">Don't have an account yet? <strong>Sign Up</strong> ...</a>
+</div>

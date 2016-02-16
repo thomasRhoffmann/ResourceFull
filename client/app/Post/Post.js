@@ -1,7 +1,8 @@
-angular.module('app.Post', [])
+angular.module('app.Post', ['app.User'])
 
-.controller('PostController', function ($scope, $http) {
+.controller('PostController', function ($scope, $http, $window, $location) {
 	$scope.post = {};
+
 	$scope.addPost = function (post) {
 		return $http({
       method: 'POST',
@@ -14,4 +15,9 @@ angular.module('app.Post', [])
     	return resp;
     })
 	}
+
+  $scope.signout = function () {
+    $window.localStorage.removeItem('com.resourcefull');
+    $location.path('/signin');
+  }
 });

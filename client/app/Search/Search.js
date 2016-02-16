@@ -1,6 +1,6 @@
-angular.module('app.Search', [])
+angular.module('app.Search', ['app.User'])
 
-.controller('SearchController', function ($scope, $http) {
+.controller('SearchController', function ($scope, $http, $window, $location) {
 	$scope.data = {};
 	$scope.search = {};
 
@@ -16,4 +16,9 @@ angular.module('app.Search', [])
     	return resp;
     })
 	}
+
+  $scope.signout = function () {
+    $window.localStorage.removeItem('com.resourcefull');
+    $location.path('/signin');
+  }
 })

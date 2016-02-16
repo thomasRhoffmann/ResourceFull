@@ -7,5 +7,5 @@ module.exports = function (app, express) {
   app.post('/search', postController.getPosts);
 
   app.post('/signup', userController.signup);
-
+  app.post('/signin', userController.signin);
 };
