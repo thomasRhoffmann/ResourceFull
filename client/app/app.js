@@ -1,6 +1,7 @@
 angular.module('app', [
   'app.Post',
   'app.Search',
+  'app.User',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
@@ -13,6 +14,10 @@ angular.module('app', [
     .when('/search', {
       templateUrl: 'app/Search/Search.html',
       controller: 'SearchController'
+    })
+    .when('/signup', {
+      templateUrl: 'app/User/SignUp.html',
+      controller: 'UserController'
     })
      .otherwise({
        redirectTo: '/search'
