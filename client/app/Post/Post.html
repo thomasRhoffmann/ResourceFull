@@ -6,9 +6,9 @@
       <li><a href="#/post">Post</a></li>
     </ul>
   </div>
-    <form>
-      <input placeholder="Enter resource name here" ng-model="data.title">
-      <input placeholder="Enter comment about resource here" ng-model="data.comment">
+    <form ng-submit="addPost(post)">
+      <input placeholder="Enter resource name here" ng-model="post.title">
+      <input placeholder="Enter comment about resource here" ng-model="post.comment">
       <input class="submit" type="submit" value="Post"> 
     </form>
   </div>
