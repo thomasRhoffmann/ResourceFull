@@ -7,14 +7,19 @@
       <li><a href="#" ng-click="signout()">Sign Out</a></li>
     </ul>
   </div>
-    <form class="search" ng-submit="findResources()">
-      <input class="searchField" ng-model="search.criteria" placeholder="Search">
-      <input class="submitSearch" type="submit" value="Search">
+    <form>
+      <div class="box">
+        <div class="container-4">
+          <input placeholder="Search for resources..." type="search" id="search"  ng-model="search.criteria"/>
+          <button class="icon" ng-click="findResources()"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
     </form>
     <ul class="searchList">
       <li class="searchResult" ng-repeat="result in data.searchResults | orderBy:'created_at'">
-        <div>Title: {{result.title}}</div> 
-        <div>Comment: {{result.comment}}</div>
+        <div class="resultsDiv"><span class="resultsHeader">Title: </span> <span class="resultsBody">{{result.title}}</span></div> 
+        <div class="resultsDiv"><span class="resultsHeader">Comment: </span> <span class="resultsBody">{{result.comment}}</span></div> 
+         <div class="resultsDiv"><span class="resultsHeader">Tags: </span> <span class="resultsBody">{{result.tags.join(', ')}}</span></div> 
       </li>
     </ul>
   </div>

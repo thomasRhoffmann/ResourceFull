@@ -1,5 +1,5 @@
 var Post = require('./postModel');
-var User = require('./userModel');
+var User = require('../users/userModel');
 
 module.exports = {
 

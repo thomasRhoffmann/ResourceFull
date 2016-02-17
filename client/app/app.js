@@ -44,7 +44,8 @@ angular.module('app', [
 })
 .run(function ($rootScope, $location, Auth) {
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-    if (!Auth.isSignedIn()) {
+    if (!Auth.isSignedIn() && $location.$$path !== '/signup') {
+      console.log($location.$$path);
       $location.path('/signin');
     }
   });

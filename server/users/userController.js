@@ -32,7 +32,7 @@ module.exports = {
     User.find({username: username}).exec( function(err, user) {
       if (err) {
         res.send(400);
-      } else if (!user) {
+      } else if (user.length === 0) {
         next (new Error('Unknown username!'));
       } else {
         if (user[0].password === password) {
