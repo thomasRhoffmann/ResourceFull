@@ -2,7 +2,7 @@
   <h1>Sign In</h1>
   <form class="sign-" name="signinForm" ng-submit='signin()'>
     <input class="username" placeholder="username" type='text' ng-model='user.username'>
-    <input class="password" placeholder="password" type="password" name="password" ng-model='user.password' ng-minlength="3">
+    <input class="password" placeholder="password" type="password" name="password" ng-model='user.password'>
       <p ng-show="signupForm.password.$error.minlength" class="help-block">Password is too short.</p>
     <input type="submit" value="Sign In">
   </form>

@@ -9,12 +9,14 @@ module.exports = {
 
     User.find({username: username}).exec( function(err, found) {
     	if (err) {
-    		res.send(400);
-    	} else if (found.length !== 0) {
-    		next (new Error('User already exists!'));
-    	} else {
-    		User.create({username: username, password: password}, function (err, user) {
-    			if (err) {
+        throw err;
+        res.send(400);
+      } else if (found.length !== 0) {
+        next (new Error('User already exists!'));
+      } else {
+        User.create({username: username, password: password}, function (err, user) {
+          if (err) {
+            throw err;
     				res.send(400);
     			} else {
   				  var token = jwt.encode(user, 'secretcode');
@@ -31,6 +33,7 @@ module.exports = {
 
     User.find({username: username}).exec( function(err, user) {
       if (err) {
+        throw err;
         res.send(400);
       } else if (user.length === 0) {
         next (new Error('Unknown username!'));
