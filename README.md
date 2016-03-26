@@ -1,2 +1,2 @@
-# further-reading
+# Resourcefull
 Crowd-sourced resource suggestion application
