@@ -1,2 +1,2 @@
 # further-reading
-MVP project
+Crowd-sourced resource suggestion application
