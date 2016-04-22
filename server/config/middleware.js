@@ -9,6 +9,4 @@ module.exports = function (app, express) {
   app.use(morgan('dev'));
   app.use(express.static(__dirname + '/../../client'));
   app.use(session({ secret: 'galvanized fern' }));
-  app.use(passport.initialize());
-  app.use(passport.session());
 };
