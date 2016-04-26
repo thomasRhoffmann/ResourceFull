@@ -8,6 +8,7 @@ import logger from 'redux-logger'
 import ReduxPromise from 'redux-promise'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import Search from './components/Search'
+import NavigationBar from './components/NavigationBar'
 
 const store = createStore(
   combineReducers({
@@ -21,8 +22,11 @@ const history = syncHistoryWithStore(browserHistory, store);
 export default class App extends Component {
   render() {
     return (
-      <div>App</div>
-      {this.props.children}
+      <div>
+        App
+        <NavigationBar />
+        {this.props.children}
+      </div>
     )
   }
 };
