@@ -7,6 +7,7 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import ReduxPromise from 'redux-promise'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import Search from './components/Search'
 
 const store = createStore(
   combineReducers({
@@ -30,6 +31,7 @@ render((
   <Provider store={store}>
     <Router history={history}>
       <Route path='/' component={App}>
+        <IndexRoute component={Search} />
       </Route>
     </Router>
   </Provider>
