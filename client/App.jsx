@@ -1,6 +1,6 @@
-import {React, Component} from 'react'
+import React, { Component } from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore, getState, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
@@ -17,13 +17,16 @@ const store = createStore(
   applyMiddleware(ReduxPromise, thunk, logger())
 );
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
+    console.log('rendering ');
     return (
-      <div>
-        App
+      <div >
         <NavigationBar />
         {this.props.children}
       </div>

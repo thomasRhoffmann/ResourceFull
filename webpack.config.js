@@ -2,7 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'client/App.jsx'),
+  entry: [
+    path.resolve(__dirname, 'client/App.jsx')
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -10,12 +12,15 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
+  devtool: 'eval-source-map',
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, '/client'),
-        include: path.resolve(__dirname, '/test'),
+        include: [
+          path.resolve(__dirname, 'client/'),
+          path.resolve(__dirname, 'test/')
+        ],
         loaders: ['react-hot', 'babel']
       },
       {
@@ -24,8 +29,5 @@ module.exports = {
       }
 
     ]
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 };
