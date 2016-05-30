@@ -20,11 +20,7 @@ const store = createStore(
 const history = syncHistoryWithStore(hashHistory, store);
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
-    console.log('rendering ');
     return (
       <div >
         <NavigationBar />
