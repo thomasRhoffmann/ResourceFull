@@ -25,4 +25,4 @@ client/lib
 .flooignore
 
 # Webpack bundle
-public/bundle.js
+public/bundle.*

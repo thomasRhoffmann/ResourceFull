@@ -7,8 +7,8 @@ export default class NavigationBar extends Component {
       <div className='nav'>
         <ul>
           <h1 className='logo'><span className='logo-first-half'>Resource</span><span className='logo-second-half'>Full</span></h1>
-          <li><a href="">Search</a></li> 
-          <li><a href="">Post</a></li>
+          <li><Link to="">Search</Link></li> 
+          <li><Link to="">Post</Link></li>
         </ul>
       </div>
     )
