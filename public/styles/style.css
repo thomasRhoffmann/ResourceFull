@@ -136,3 +136,9 @@ li.nav-account {
   color: #b3c2bf;
 }
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
