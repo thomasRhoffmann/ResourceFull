@@ -14,7 +14,7 @@ export default class NavigationBar extends Component {
           <li><Link to=''>Search</Link></li> 
           <li><Link to=''>Post</Link></li>
           <li className='nav-account'><Link to='/signin'>Sign In</Link></li>
-          <li className='nav-account'><Link to=''>Sign Up</Link></li>
+          <li className='nav-account'><Link to='/signup'>Sign Up</Link></li>
         </ul>
       </div>
     )

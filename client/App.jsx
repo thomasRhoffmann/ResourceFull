@@ -10,6 +10,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import Search from './components/Search'
 import NavigationBar from './components/NavigationBar'
 import SignIn from './components/SignIn'
+import SignUp from './components/SignUp'
 
 const store = createStore(
   combineReducers({
@@ -37,6 +38,7 @@ render((
       <Route path='/' component={App}>
         <IndexRoute component={Search} />
         <Route path='/signin' component={SignIn} />
+        <Route path='/signup' component={SignUp} />
       </Route>
     </Router>
   </Provider>
