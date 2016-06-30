@@ -3,8 +3,8 @@ var bcrypt = require('bcrypt');
 
 module.exports = {
 
-	signup: function(req, res, next) {
-		var username = req.body.username;
+  signup: function(req, res, next) {
+    var username = req.body.username;
     var password = req.body.password;
 
     db.User.findOne({where: {username: req.body.username}})
@@ -33,10 +33,10 @@ module.exports = {
     .catch(function(err) {
       throw err;
     });    
-	},
+  },
 
   signin: function(req, res, next) {
     res.send('User signed in successfully!');
   }
 
-}
+};
