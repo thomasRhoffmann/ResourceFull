@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import utiltiy from './utils/utilties';
+import utility from '../utils/utilities';
 
 export const sign_up = (user) => {
   return fetch('/signup', {
