@@ -3,7 +3,7 @@ import utility from '../utils/utilities';
 
 export const sign_up = (user) => {
   return fetch('/signup', {
-    method: 'POST',
+    method: 'post',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -12,7 +12,9 @@ export const sign_up = (user) => {
       user: user
     })
   })
-  .then(utility.checkStatus)
+  .then(() => {
+    console.log('made it here');
+  })
   .then(utility.parseJSON)
   .then((user) => {
     console.log(user);

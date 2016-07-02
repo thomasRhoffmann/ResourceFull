@@ -4,26 +4,26 @@ var bcrypt = require('bcrypt');
 module.exports = {
 
   signup: function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
+    var username = req.body.user.username;
+    var password = req.body.user.password;
 
-    db.User.findOne({where: {username: req.body.username}})
+    db.User.findOne({where: {username: username}})
     .then(function(user) {
       if (user) {
         next(new Error('Username already exists!'));
         res.status(200);
       }
-      bcrypt.hash(req.body.password, 10, function(err, hash) {
+      bcrypt.hash(password, 10, function(err, hash) {
         if (err) {
           throw err;
         }
         db.User.create({
-          username: req.body.username,
+          username: username,
           password: hash
         })
         .then(function(user) {
           console.log('User created successfully');
-          res.status(201);
+          res.sendStatus(201);
         })
         .catch(function(err) {
           throw err;
