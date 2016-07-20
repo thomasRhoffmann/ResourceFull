@@ -23,7 +23,7 @@ module.exports = {
         })
         .then(function(user) {
           console.log('User created successfully');
-          res.sendStatus(201);
+          res.status(201).send(user);
         })
         .catch(function(err) {
           throw err;

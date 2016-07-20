@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 const SignUp = (state = {}, action) => {
   switch(action.type) {
     case 'SIGN_UP':
-      return action.user;
+      return action.user.username;
     default:
       return state;
   }

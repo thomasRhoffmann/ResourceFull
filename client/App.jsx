@@ -7,6 +7,7 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import ReduxPromise from 'redux-promise'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import AppReducer from './reducers/reducer'
 import Search from './components/Search'
 import NavigationBar from './components/NavigationBar'
 import SignIn from './components/SignIn'
@@ -14,7 +15,8 @@ import SignUp from './components/SignUp'
 
 const store = createStore(
   combineReducers({
-    routing: routerReducer
+    routing: routerReducer,
+    app: AppReducer
   }),
   applyMiddleware(ReduxPromise, thunk, logger())
 );
