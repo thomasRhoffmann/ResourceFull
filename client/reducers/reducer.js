@@ -5,7 +5,7 @@ import { routerReducer } from 'react-router-redux';
 const SignUp = (state = {}, action) => {
   switch(action.type) {
     case 'SIGN_UP':
-      return action.user.username;
+      return action.user;
     default:
       return state;
   }

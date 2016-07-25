@@ -1,5 +1,6 @@
 var db = require('../db');
 var bcrypt = require('bcrypt');
+var session = require('express-session');
 
 module.exports = {
 
@@ -16,6 +17,7 @@ module.exports = {
       bcrypt.hash(password, 10, function(err, hash) {
         if (err) {
           throw err;
+          res.status(500);
         }
         db.User.create({
           username: username,
@@ -23,15 +25,26 @@ module.exports = {
         })
         .then(function(user) {
           console.log('User created successfully');
-          res.status(201).send(user);
+          req.session.regenerate(function(err) {
+            if (err) {
+              throw err;
+              res.status(500);
+            }
+            req.session.userId = user.username;
+            // Return user information (excluding password) to client-side.
+            var userInfo = JSON.stringify({username: user.username});
+            res.send(200, userInfo);
+          });
         })
         .catch(function(err) {
           throw err;
+          res.status(500);
         });
       });
     })
     .catch(function(err) {
       throw err;
+      res.status(500);
     });    
   },
 
