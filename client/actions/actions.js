@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+import fetch from 'whatwg-fetch';
 import utility from '../utils/utilities';
 
 export const sign_up_async = (user) => {
@@ -13,7 +13,6 @@ export const sign_up_async = (user) => {
       })
     })
     .then((res) => {
-      console.log('made it here');
       return utility.parseJSON(res);
     })
     .then((user) => {

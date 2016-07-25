@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 
 const SignUp = (state = {}, action) => {
@@ -11,7 +12,8 @@ const SignUp = (state = {}, action) => {
 };
 
 const AppReducer = combineReducers({
-  currentUser: SignUp
+  currentUser: SignUp,
+  routing: routerReducer
 });
 
 export default AppReducer;
