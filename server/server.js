@@ -6,10 +6,6 @@ var app = express();
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
-// app.get('*', function (request, response){
-//   response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-// });
-
 // Start listening to requests on port 8000
 var port = 8000;
 app.listen(port, function() {

@@ -5,7 +5,7 @@ export default class NavigationBar extends Component {
   render() {
     return (
       <div className='nav'>
-        <ul>
+        <ul className='clearfix'>
           <h1 className='logo'>
             <Link to='/'>
               <span className='logo-first-half'>Resource</span><span className='logo-second-half'>Full</span>
