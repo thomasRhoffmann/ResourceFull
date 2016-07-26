@@ -1,6 +1,6 @@
 var db = require('../db');
 var bcrypt = require('bcrypt');
-var session = require('express-session');
+var utils = require('../utils/utilities');
 
 module.exports = {
 
@@ -11,40 +11,32 @@ module.exports = {
     db.User.findOne({where: {username: username}})
     .then(function(user) {
       if (user) {
-        next(new Error('Username already exists!'));
-        res.status(200);
+        new Error('Username already exists!');
+        res.sendStatus(200);
+        return;
       }
       bcrypt.hash(password, 10, function(err, hash) {
         if (err) {
           throw err;
-          res.status(500);
+          res.sendStatus(500);
+          return;
         }
         db.User.create({
           username: username,
           password: hash
         })
         .then(function(user) {
-          console.log('User created successfully');
-          req.session.regenerate(function(err) {
-            if (err) {
-              throw err;
-              res.status(500);
-            }
-            req.session.userId = user.username;
-            // Return user information (excluding password) to client-side.
-            var userInfo = JSON.stringify({username: user.username});
-            res.send(200, userInfo);
-          });
+          utils.createSession(req, res, user);
         })
         .catch(function(err) {
           throw err;
-          res.status(500);
+          res.sendStatus(500);
         });
       });
     })
     .catch(function(err) {
       throw err;
-      res.status(500);
+      res.sendStatus(500);
     });    
   },
 
