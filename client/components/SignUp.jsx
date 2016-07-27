@@ -17,7 +17,7 @@ class SignUp extends Component {
     return (
       <div className='signup-container'>
         <h1 className='signup-header'>Sign Up</h1>
-        <form className="signup-form" >
+        <form className="signup-form">
           <input className='signup-username' placeholder='username' ref='username' type='text' />
           <input className='signup-password' placeholder='password' ref='password' type='password' />
           <button type='button' onClick={signUp}>Sign Up</button>
