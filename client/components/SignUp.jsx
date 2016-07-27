@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { sign_up_async } from '../actions/actions';
+import { account_access } from '../actions/actions';
 
 class SignUp extends Component {
   render() {
     const signUp = (e) => {
       const user = {
         username: this.refs.username.value,
-        password: this.refs.password.value
+        password: this.refs.password.value,
+        path: '/signup'
       };
 
       this.props.signUp(user);
@@ -36,7 +37,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signUp: (user) => {
-      dispatch(sign_up_async(user));
+      dispatch(account_access(user));
     },
   };
 };
