@@ -16,7 +16,6 @@ module.exports = {
       }
       bcrypt.hash(password, 10, function(err, hash) {
         if (err) {
-          throw err;
           res.sendStatus(500);
           return;
         }
@@ -28,13 +27,11 @@ module.exports = {
           utils.createSession(req, res, user);
         })
         .catch(function(err) {
-          throw err;
           res.sendStatus(500);
         });
       });
     })
     .catch(function(err) {
-      throw err;
       res.sendStatus(500);
     });    
   },

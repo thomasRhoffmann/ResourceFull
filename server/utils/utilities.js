@@ -4,7 +4,6 @@ module.exports = {
   createSession: function(req, res, user) {
     req.session.regenerate(function(err) {
       if (err) {
-        throw err;
         res.sendStatus(500);
         return;
       }

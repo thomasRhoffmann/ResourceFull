@@ -11,6 +11,6 @@ module.exports = function (app, express) {
   // app.post('/post', postController.addPost);
   // app.post('/search', postController.getPosts);
 
-  app.post('/signup', userController.signup);
-  app.post('/signin', userController.signin);
+  app.post('/sign_up', userController.signup);
+  app.post('/sign_in', userController.signin);
 };
